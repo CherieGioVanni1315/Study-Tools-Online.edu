@@ -3,24 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tab title seen by teachers/admins -->
     <title>Student Academic Resources | Independent Study Hub</title>
+    
+    <!-- Meta tags scanned by Iboss automated crawlers -->
     <meta name="description" content="A comprehensive directory of free online study tools, practice modules, and standardized test preparation materials. Developed to support secondary education students in mastering core curriculum standards, high school class preparation, and PSAT/PACT readiness through interactive cognitive reinforcement exercises.">
     <meta name="keywords" content="study tools, secondary education, high school test prep, PSAT preparation, PACT review, interactive learning, academic resources, curriculum enrichment">
-    <link rel="stylesheet" href="style.css">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        .dashboard { max-width: 800px; width: 100%; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f4f6f9; 
+            color: #333; 
+            margin: 0; 
+            padding: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+        }
+        .dashboard { 
+            max-width: 800px; 
+            width: 100%; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            margin-bottom: 20px; 
+            text-align: center; 
+        }
         h1 { color: #2c3e50; margin-bottom: 5px; }
         .subtitle { color: #7f8c8d; margin-bottom: 30px; }
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; text-align: left; background: #f8fafc; transition: transform 0.2s; }
+        .card { 
+            border: 1px solid #e2e8f0; 
+            border-radius: 6px; 
+            padding: 20px; 
+            text-align: left; 
+            background: #f8fafc; 
+            transition: transform 0.2s; 
+        }
         .card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
         .card h3 { margin-top: 0; color: #34495e; }
         .card p { color: #64748b; font-size: 14px; line-height: 1.5; }
-        .btn { display: inline-block; background-color: #3b82f6; color: white; padding: 10px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 500; text-decoration: none; font-size: 14px; }
+        .btn { 
+            display: inline-block; 
+            background-color: #3b82f6; 
+            color: white; 
+            padding: 10px 16px; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-weight: 500; 
+            text-decoration: none; 
+            font-size: 14px; 
+        }
         .btn:hover { background-color: #2563eb; }
-        #frame-wrapper { display: none; width: 100%; max-width: 900px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
-        iframe { width: 100%; height: 600px; border: 1px solid #cbd5e1; border-radius: 4px; background: #000; }
+        #frame-wrapper { 
+            display: none; 
+            width: 100%; 
+            max-width: 950px; 
+            background: white; 
+            padding: 15px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+            text-align: center; 
+        }
+        iframe { 
+            width: 100%; 
+            height: 650px; 
+            border: 1px solid #cbd5e1; 
+            border-radius: 4px; 
+            background: #000; 
+        }
         .close-btn { background-color: #ef4444; margin-bottom: 10px; }
         .close-btn:hover { background-color: #dc2626; }
     </style>
@@ -32,39 +87,57 @@
         <p class="subtitle">Independent Study Hub & Standardized Test Readiness Modules</p>
         
         <div class="grid">
-            <!-- Game 1 Slot -->
+            <!-- Game 1 / Module A Card -->
             <div class="card">
                 <h3>Rhythm & Audio Coordination (Module 1-A)</h3>
                 <p>An interactive audio pacing simulation designed to evaluate audio-visual reflexes, pattern recognition, and rhythmic precision inputs.</p>
-                <button class="btn" onclick="loadModule('./fnf-game/index.html')">Launch Module 1-A</button>
+                <!-- Triggers proxy-module-a -->
+                <button class="btn" onclick="loadModule('/proxy-module-a/')">Launch Module 1-A</button>
             </div>
             
-            <!-- Game 2 Slot -->
+            <!-- Game 2 / Module B Card -->
             <div class="card">
                 <h3>Spatial Processing & Geometry (Module 2-B)</h3>
                 <p>A 3D spatial environments rendering module designed to test volumetric grid manipulation, structural planning, and coordinate tracking.</p>
-                <button class="btn" onclick="loadModule('./mc-game/index.html')">Launch Module 2-B</button>
+                <!-- Triggers proxy-module-b -->
+                <button class="btn" onclick="loadModule('/proxy-module-b/')">Launch Module 2-B</button>
             </div>
         </div>
     </div>
 
-    <!-- Hidden wrapper where the games will display inside the site -->
+    <!-- Hidden wrapper where the games will display safely inside your site domain -->
     <div id="frame-wrapper">
         <button class="btn close-btn" onclick="closeModule()">← Return to Dashboard</button>
-        <iframe id="game-frame" src=""></iframe>
+        <iframe 
+            id="game-frame" 
+            src="" 
+            referrerpolicy="no-referrer"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"
+            allow="autoplay; fullscreen">
+        </iframe>
     </div>
 
     <script>
         function loadModule(url) {
+            // Hide dashboard, show iframe wrapper, and pull the Vercel proxy route
             document.getElementById('main-dashboard').style.display = 'none';
             document.getElementById('frame-wrapper').style.display = 'block';
             document.getElementById('game-frame').src = url;
         }
+        
         function closeModule() {
+            // Clear frame data completely and return to menu
             document.getElementById('frame-wrapper').style.display = 'none';
             document.getElementById('main-dashboard').style.display = 'block';
             document.getElementById('game-frame').src = '';
         }
+
+        // Optional Panic Key: Pressing 'Escape' instantly closes whatever is open
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModule();
+            }
+        });
     </script>
 </body>
 </html>
