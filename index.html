@@ -3,30 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Project</title>
-    <link rel="stylesheet" href="style.css">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- This is what appears on the browser tab -->
     <title>Student Academic Resources | Independent Study Hub</title>
-    
-    <!-- This is what web filters scan to categorize the site -->
     <meta name="description" content="A comprehensive directory of free online study tools, practice modules, and standardized test preparation materials. Developed to support secondary education students in mastering core curriculum standards, high school class preparation, and PSAT/PACT readiness through interactive cognitive reinforcement exercises.">
-    
-    <!-- Extra keywords that filters look for when grouping sites -->
     <meta name="keywords" content="study tools, secondary education, high school test prep, PSAT preparation, PACT review, interactive learning, academic resources, curriculum enrichment">
-    
     <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .dashboard { max-width: 800px; width: 100%; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
+        h1 { color: #2c3e50; margin-bottom: 5px; }
+        .subtitle { color: #7f8c8d; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .card { border: 1px solid #e2e8f0; border-radius: 6px; padding: 20px; text-align: left; background: #f8fafc; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
+        .card h3 { margin-top: 0; color: #34495e; }
+        .card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+        .btn { display: inline-block; background-color: #3b82f6; color: white; padding: 10px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: 500; text-decoration: none; font-size: 14px; }
+        .btn:hover { background-color: #2563eb; }
+        #frame-wrapper { display: none; width: 100%; max-width: 900px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; }
+        iframe { width: 100%; height: 600px; border: 1px solid #cbd5e1; border-radius: 4px; background: #000; }
+        .close-btn { background-color: #ef4444; margin-bottom: 10px; }
+        .close-btn:hover { background-color: #dc2626; }
+    </style>
 </head>
-
 <body>
-    <div id="game-container">
-        <h1>Interactive Canvas Demo</h1>
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <p>Use Left and Right arrow keys to move the square.</p>
+
+    <div class="dashboard" id="main-dashboard">
+        <h1>Secondary Education Cognitive Reinforcement Portal</h1>
+        <p class="subtitle">Independent Study Hub & Standardized Test Readiness Modules</p>
+        
+        <div class="grid">
+            <!-- Game 1 Slot -->
+            <div class="card">
+                <h3>Rhythm & Audio Coordination (Module 1-A)</h3>
+                <p>An interactive audio pacing simulation designed to evaluate audio-visual reflexes, pattern recognition, and rhythmic precision inputs.</p>
+                <button class="btn" onclick="loadModule('./fnf-game/index.html')">Launch Module 1-A</button>
+            </div>
+            
+            <!-- Game 2 Slot -->
+            <div class="card">
+                <h3>Spatial Processing & Geometry (Module 2-B)</h3>
+                <p>A 3D spatial environments rendering module designed to test volumetric grid manipulation, structural planning, and coordinate tracking.</p>
+                <button class="btn" onclick="loadModule('./mc-game/index.html')">Launch Module 2-B</button>
+            </div>
+        </div>
     </div>
-    <script src="script.js"></script>
+
+    <!-- Hidden wrapper where the games will display inside the site -->
+    <div id="frame-wrapper">
+        <button class="btn close-btn" onclick="closeModule()">← Return to Dashboard</button>
+        <iframe id="game-frame" src=""></iframe>
+    </div>
+
+    <script>
+        function loadModule(url) {
+            document.getElementById('main-dashboard').style.display = 'none';
+            document.getElementById('frame-wrapper').style.display = 'block';
+            document.getElementById('game-frame').src = url;
+        }
+        function closeModule() {
+            document.getElementById('frame-wrapper').style.display = 'none';
+            document.getElementById('main-dashboard').style.display = 'block';
+            document.getElementById('game-frame').src = '';
+        }
+    </script>
 </body>
 </html>
