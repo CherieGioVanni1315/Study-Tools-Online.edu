@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Tab title seen by teachers/admins -->
+    <!-- Tab title seen on your browser screen -->
     <title>Student Academic Resources | Independent Study Hub</title>
     
-    <!-- Meta tags scanned by Iboss automated crawlers -->
+    <!-- Hidden text strings scanned by automated network filters -->
     <meta name="description" content="A comprehensive directory of free online study tools, practice modules, and standardized test preparation materials. Developed to support secondary education students in mastering core curriculum standards, high school class preparation, and PSAT/PACT readiness through interactive cognitive reinforcement exercises.">
     <meta name="keywords" content="study tools, secondary education, high school test prep, PSAT preparation, PACT review, interactive learning, academic resources, curriculum enrichment">
     
@@ -23,7 +23,7 @@
             align-items: center; 
         }
         .dashboard { 
-            max-width: 800px; 
+            max-width: 1000px; 
             width: 100%; 
             background: white; 
             padding: 30px; 
@@ -34,18 +34,29 @@
         }
         h1 { color: #2c3e50; margin-bottom: 5px; }
         .subtitle { color: #7f8c8d; margin-bottom: 30px; }
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
         .card { 
             border: 1px solid #e2e8f0; 
             border-radius: 6px; 
             padding: 20px; 
             text-align: left; 
             background: #f8fafc; 
-            transition: transform 0.2s; 
+            transition: transform 0.2s, box-shadow 0.2s; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .card:hover { transform: translateY(-2px); border-color: #cbd5e1; }
-        .card h3 { margin-top: 0; color: #34495e; }
-        .card p { color: #64748b; font-size: 14px; line-height: 1.5; }
+        .card:hover { 
+            transform: translateY(-2px); 
+            border-color: #cbd5e1; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .card h3 { margin-top: 0; color: #34495e; font-size: 16px; }
+        .card p { color: #64748b; font-size: 13px; line-height: 1.5; margin-bottom: 15px; }
         .btn { 
             display: inline-block; 
             background-color: #3b82f6; 
@@ -56,13 +67,14 @@
             cursor: pointer; 
             font-weight: 500; 
             text-decoration: none; 
-            font-size: 14px; 
+            font-size: 13px; 
+            text-align: center;
         }
         .btn:hover { background-color: #2563eb; }
         #frame-wrapper { 
             display: none; 
             width: 100%; 
-            max-width: 950px; 
+            max-width: 1100px; 
             background: white; 
             padding: 15px; 
             border-radius: 8px; 
@@ -71,7 +83,7 @@
         }
         iframe { 
             width: 100%; 
-            height: 650px; 
+            height: 700px; 
             border: 1px solid #cbd5e1; 
             border-radius: 4px; 
             background: #000; 
@@ -87,57 +99,120 @@
         <p class="subtitle">Independent Study Hub & Standardized Test Readiness Modules</p>
         
         <div class="grid">
-            <!-- Game 1 / Module A Card -->
+            <!-- Module A: 2048 -->
             <div class="card">
-                <h3>Rhythm & Audio Coordination (Module 1-A)</h3>
-                <p>An interactive audio pacing simulation designed to evaluate audio-visual reflexes, pattern recognition, and rhythmic precision inputs.</p>
-                <!-- Triggers proxy-module-a -->
+                <div>
+                    <h3>Mathematical Sequencing (Module 1-A)</h3>
+                    <p>Grid manipulation exercise testing base-2 numerical factoring, geometric matrix alignment, and exponential progression values.</p>
+                </div>
                 <button class="btn" onclick="loadModule('/proxy-module-a/')">Launch Module 1-A</button>
             </div>
             
-            <!-- Game 2 / Module B Card -->
+            <!-- Module B: Amanda the Adventurer -->
             <div class="card">
-                <h3>Spatial Processing & Geometry (Module 2-B)</h3>
-                <p>A 3D spatial environments rendering module designed to test volumetric grid manipulation, structural planning, and coordinate tracking.</p>
-                <!-- Triggers proxy-module-b -->
-                <button class="btn" onclick="loadModule('/proxy-module-b/')">Launch Module 2-B</button>
+                <div>
+                    <h3>Media Literacy & Logic (Module 1-B)</h3>
+                    <p>An interactive data archival assessment reviewing narrative patterns, hidden contextual metadata, and cognitive problem parsing.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-b/')">Launch Module 1-B</button>
+            </div>
+            
+            <!-- Module C: Among Us -->
+            <div class="card">
+                <div>
+                    <h3>Social Synergy & Logistics (Module 1-C)</h3>
+                    <p>A multi-agent telemetry simulation designed to measure team component allocation, threat identification, and environmental repairs.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-c/')">Launch Module 1-C</button>
+            </div>
+            
+            <!-- Module D: Baldi's Basics -->
+            <div class="card">
+                <div>
+                    <h3>Curriculum Recall Practice (Module 2-A)</h3>
+                    <p>A standard arithmetic baseline tracking session evaluating swift operation computation under varied audio-environmental fatigue.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-d/')">Launch Module 2-A</button>
+            </div>
+            
+            <!-- Module E: Bendy and the Ink Machine -->
+            <div class="card">
+                <div>
+                    <h3>Historical Studio Design (Module 2-B)</h3>
+                    <p>Spatial puzzle module exploring structural navigation layouts, asset mechanics tracking, and industrial machinery analysis.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-e/')">Launch Module 2-B</button>
+            </div>
+            
+            <!-- Module F: BFB 5B -->
+            <div class="card">
+                <div>
+                    <h3>Physics & Velocity Check (Module 2-C)</h3>
+                    <p>A 2D physical engine tracking tool looking at boundary interaction metrics, acceleration values, and vector target accuracy.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-f/')">Launch Module 2-C</button>
+            </div>
+            
+            <!-- Module G: Bitlife -->
+            <div class="card">
+                <div>
+                    <h3>Statistical Life Modeling (Module 3-A)</h3>
+                    <p>A macro-economic textual trajectory study assessing asset acquisition curves, demographic metrics, and risk management.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-g/')">Launch Module 3-A</button>
+            </div>
+            
+            <!-- Module H: Block Blast -->
+            <div class="card">
+                <div>
+                    <h3>Volumetric Tessellation (Module 3-B)</h3>
+                    <p>A static block geometry arrangement index tracking line clearance optimization, shape configuration, and spatial buffer logic.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-h/')">Launch Module 3-B</button>
+            </div>
+            
+            <!-- Module I: Class of '09 -->
+            <div class="card">
+                <div>
+                    <h3>Sociological Dialogue Index (Module 3-C)</h3>
+                    <p>A branch-choice contextual dynamic analysis assessing behavioral syntax response lines and secondary education structural metrics.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-i/')">Launch Module 3-C</button>
+            </div>
+            
+            <!-- Module J: Crossy Road -->
+            <div class="card">
+                <div>
+                    <h3>Velocity Vectors & Timing (Module 4-A)</h3>
+                    <p>A lateral positioning coordination tracker checking target calculation timing relative to fast moving horizontal obstacle vectors.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-j/')">Launch Module 4-A</button>
+            </div>
+            
+            <!-- Module K: Cut the Rope -->
+            <div class="card">
+                <div>
+                    <h3>Gravity Kinesics Modeling (Module 4-B)</h3>
+                    <p>A dynamic physical mechanics utility rendering pendulum motion curves, tension releases, and multi-joint kinetic targets.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-k/')">Launch Module 4-B</button>
+            </div>
+            
+            <!-- Module L: Deltarune -->
+            <div class="card">
+                <div>
+                    <h3>Strategic Matrix Turn Loops (Module 4-C)</h3>
+                    <p>A linear choice structural environment layout reviewing turn calculation allocations, entity values, and item balance metrics.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-l/')">Launch Module 4-C</button>
+            </div>
+            
+            <!-- Module M: DDLC -->
+            <div class="card">
+                <div>
+                    <h3>Textual Analysis & Syntax (Module 5-A)</h3>
+                    <p>A deep linguistic algorithmic parsing assessment tracking vocabulary selection vectors and interactive reading comprehension.</p>
+                </div>
+                <button class="btn" onclick="loadModule('/proxy-module-m/')">Launch Module 5-A</button>
             </div>
         </div>
-    </div>
-
-    <!-- Hidden wrapper where the games will display safely inside your site domain -->
-    <div id="frame-wrapper">
-        <button class="btn close-btn" onclick="closeModule()">← Return to Dashboard</button>
-        <iframe 
-            id="game-frame" 
-            src="" 
-            referrerpolicy="no-referrer"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock"
-            allow="autoplay; fullscreen">
-        </iframe>
-    </div>
-
-    <script>
-        function loadModule(url) {
-            // Hide dashboard, show iframe wrapper, and pull the Vercel proxy route
-            document.getElementById('main-dashboard').style.display = 'none';
-            document.getElementById('frame-wrapper').style.display = 'block';
-            document.getElementById('game-frame').src = url;
-        }
-        
-        function closeModule() {
-            // Clear frame data completely and return to menu
-            document.getElementById('frame-wrapper').style.display = 'none';
-            document.getElementById('main-dashboard').style.display = 'block';
-            document.getElementById('game-frame').src = '';
-        }
-
-        // Optional Panic Key: Pressing 'Escape' instantly closes whatever is open
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModule();
-            }
-        });
-    </script>
-</body>
-</html>
