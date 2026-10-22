@@ -31,6 +31,7 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
             margin-bottom: 20px; 
             text-align: center; 
+            box-sizing: border-box;
         }
         h1 { color: #2c3e50; margin-bottom: 5px; }
         .subtitle { color: #7f8c8d; margin-bottom: 30px; }
@@ -49,6 +50,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-sizing: border-box;
         }
         .card:hover { 
             transform: translateY(-2px); 
@@ -80,6 +82,7 @@
             border-radius: 8px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
             text-align: center; 
+            box-sizing: border-box;
         }
         iframe { 
             width: 100%; 
@@ -213,6 +216,19 @@
                     <h3>Textual Analysis & Syntax (Module 5-A)</h3>
                     <p>A deep linguistic algorithmic parsing assessment tracking vocabulary selection vectors and interactive reading comprehension.</p>
                 </div>
-                <button class="btn" onclick="loadModule('/proxy-module-m/')">Launch Module 5-A</button>
-            </div>
-        </div>
+function loadModule(url) {
+document.getElementById('main-dashboard').style.display = 'none';
+document.getElementById('frame-wrapper').style.display = 'block';
+document.getElementById('game-frame').src = url;
+}
+function closeModule() {
+document.getElementById('frame-wrapper').style.display = 'none';
+document.getElementById('main-dashboard').style.display = 'block';
+document.getElementById('game-frame').src = '';
+}
+// Panic Macro: Hitting the Escape key instantly closes whatever module is active
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape') {
+closeModule();
+}
+});
