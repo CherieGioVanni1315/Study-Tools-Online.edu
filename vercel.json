@@ -2,19 +2,64 @@
   "rewrites": [
     {
       "source": "/proxy-module-a/(.*)",
-      "destination": "https://poki.com"
+      "destination": "https://play2048.co"
     },
     {
       "source": "/proxy-module-b/(.*)",
-      "destination": "https://minecraft.net"
+      "destination": "https://badparentingame.io"
+    },
+    {
+      "source": "/proxy-module-c/(.*)",
+      "destination": "https://amongus-online.net"
+    },
+    {
+      "source": "/proxy-module-d/(.*)",
+      "destination": "https://kbhgames.com"
+    },
+    {
+      "source": "/proxy-module-e/(.*)",
+      "destination": "https://repoonlinegame.com"
+    },
+    {
+      "source": "/proxy-module-f/(.*)",
+      "destination": "https://kbhgames.com"
+    },
+    {
+      "source": "/proxy-module-g/(.*)",
+      "destination": "https://bitlifefree.io"
+    },
+    {
+      "source": "/proxy-module-h/(.*)",
+      "destination": "https://blockblast-free.io"
+    },
+    {
+      "source": "/proxy-module-i/(.*)",
+      "destination": "https://horrorgames.io"
+    },
+    {
+      "source": "/proxy-module-j/(.*)",
+      "sounds": "https://poki.com"
+    },
+    {
+      "source": "/proxy-module-k/(.*)",
+      "destination": "https://crazygames.com"
+    },
+    {
+      "source": "/proxy-module-l/(.*)",
+      "destination": "https://nite.games"
+    },
+    {
+      "source": "/proxy-module-m/(.*)",
+      "destination": "https://gameslol.net"
     }
-  ]
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Frame-Options", "value": "ALLOWALL" },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self';" }
       ]
     }
   ]
