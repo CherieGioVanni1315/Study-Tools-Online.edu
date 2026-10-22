@@ -38,7 +38,7 @@
     },
     {
       "source": "/proxy-module-j/(.*)",
-      "sounds": "https://poki.com"
+      "destination": "https://poki.com"
     },
     {
       "source": "/proxy-module-k/(.*)",
